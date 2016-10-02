@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-ts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Laravel Elixir Typescript Extension",
   "main": "index.js",
   "scripts": {
