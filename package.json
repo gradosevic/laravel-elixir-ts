@@ -1,0 +1,24 @@
+{
+  "name": "laravel-elixir-ts",
+  "version": "1.0.0",
+  "description": "Laravel Elixir Typescript Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gradosevic/laravel-elixir-ts.git"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "typescript"
+  ],
+  "author": "Goran Radosevic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gradosevic/laravel-elixir-ts/issues"
+  },
+  "homepage": "https://github.com/gradosevic/laravel-elixir-ts#readme"
+}
