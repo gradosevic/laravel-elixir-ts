@@ -17,6 +17,11 @@
   ],
   "author": "Goran Radosevic",
   "license": "ISC",
+  "dependencies":{
+    "laravel-elixir": "^6.0.0-9",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.0.2"
+  },
   "bugs": {
     "url": "https://github.com/gradosevic/laravel-elixir-ts/issues"
   },
