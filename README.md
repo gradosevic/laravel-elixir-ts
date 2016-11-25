@@ -43,7 +43,10 @@ elixir(mix => {
 }
 ```
 
-For the list of all available typescript compiler options please check:
+For the list of all default options and values, please check:
+https://github.com/ivogabe/gulp-typescript#options
+
+Or check all available TypeScript options:
 https://www.typescriptlang.org/docs/handbook/compiler-options.html
 
 
