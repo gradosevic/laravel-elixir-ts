@@ -38,27 +38,37 @@ const ElixirTS = {
     },
     getStream: function () {
         return this._stream;
+    },
+    getPaths: function(){
+        //TODO: Check why paths are not showing in the table
+        return {
+            src: this._options.source,
+            output: this._options.destination
+        }
     }
 };
 
 elixir.extend(extName, function (options) {
     const _ts = ElixirTS;
     _ts.init(options);
-    new elixir.Task(extName, function () {
+    const task = new elixir.Task(extName, function () {
         this._stream = gulp.src(this.source);
 
         if (this._generateSourceMap) {
             this.pipe(sourcemaps.init());
         }
 
+        task.recordStep('Compiling TypeScript');
         this.pipe(ts(this._options));
 
         if (this._generateSourceMap) {
+            task.recordStep('Writing Source Maps');
             this.pipe(sourcemaps.write());
         }
 
+        task.recordStep('Saving to Destination');
         this.pipe(gulp.dest(this.destination));
 
         return this.getStream();
-    }.bind(_ts)).watch(_ts.source);
+    }.bind(_ts), _ts.getPaths()).watch(_ts.source);
 });
