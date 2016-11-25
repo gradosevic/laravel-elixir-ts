@@ -11,28 +11,41 @@ npm i laravel-elixir-ts --save-dev
 
 ####Usage
 ```js
-mix.typescript(source, destination, options);
+mix.typescript();
+//or
+mix.typescript(options);
 ```
 
-####Example gulpfile.js used with Angular 2 
+####Example of minimal gulpfile.js used with Angular 2 
 ```js
 
 const elixir = require('laravel-elixir');
 require('laravel-elixir-ts');
 
 elixir(mix => {
-    mix
-    .typescript("/**/*.ts", "public/app", {
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": false,
-    });
+    mix.typescript();
 });
 ```
+
+####Default options:
+```js
+{
+  source: "/**/*.ts",
+  destination: "public/app",
+  target: "es5",
+  module: "commonjs",
+  moduleResolution: "node",
+  sourceMap: true,
+  emitDecoratorMetadata: true,
+  experimentalDecorators: true,
+  removeComments: false,
+  noImplicitAny: false
+}
+```
+
+For the list of all available typescript compiler options please check:
+https://www.typescriptlang.org/docs/handbook/compiler-options.html
+
+
 
 
