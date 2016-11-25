@@ -9,6 +9,10 @@ This is TypeScript extension for Laravel 5 Elixir. It is a wrapper for gulp-type
 npm i laravel-elixir-ts --save-dev
 ```
 
+####Files I/O 
+- Put all your source .ts files in *resources/assets/typescript*
+- Transpiled files will be stored to *public/app*
+
 ####Usage
 ```js
 mix.typescript();
@@ -42,6 +46,9 @@ elixir(mix => {
   noImplicitAny: false
 }
 ```
+
+####Running
+Run "gulp" or "gulp watch" command in console in the root folder
 
 For the list of all default options and values, please check:
 https://github.com/ivogabe/gulp-typescript#options
