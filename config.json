@@ -1,4 +1,6 @@
 {
+  "source": "/**/*.ts",
+  "destination": "public/app",
   "target": "es5",
   "module": "commonjs",
   "moduleResolution": "node",

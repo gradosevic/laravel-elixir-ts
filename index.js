@@ -11,7 +11,8 @@ const ElixirTS = {
     _options: null,
     _typescriptRouteDir: 'resources/assets/typescript',
     _generateSourceMap: false,
-    sourceFiles:'',
+    source: null,
+    destination: null,
     mergeConfig: function (newConfig) {
         newConfig = newConfig || {};
         return this._options = (0, _lodash.mergeWith)(config, newConfig, function (objValue, srcValue) {
@@ -20,9 +21,14 @@ const ElixirTS = {
             }
         });
     },
-    init: function (source, destination, options) {
+    init: function (options) {
         this._options = this.mergeConfig(options);
-        this.sourceFiles = this._typescriptRouteDir + source;
+        this.source = this._typescriptRouteDir + this._options.source;
+        this.destination = this._options.destination;
+
+        //Remove temporary options, so typescript compiler does not show an error
+        delete this._options.source;
+        delete this._options.destination;
 
         //TODO: Add support for regular source maps files
         this._generateSourceMap = this._options.sourceMap || this._options.inlineSourceMap;
@@ -35,11 +41,11 @@ const ElixirTS = {
     }
 };
 
-elixir.extend(extName, function (source, destination, options) {
+elixir.extend(extName, function (options) {
     const _ts = ElixirTS;
-    _ts.init(source, destination, options);
+    _ts.init(options);
     new elixir.Task(extName, function () {
-        this._stream = gulp.src(this.sourceFiles);
+        this._stream = gulp.src(this.source);
 
         if (this._generateSourceMap) {
             this.pipe(sourcemaps.init());
@@ -51,8 +57,8 @@ elixir.extend(extName, function (source, destination, options) {
             this.pipe(sourcemaps.write());
         }
 
-        this.pipe(gulp.dest(destination));
+        this.pipe(gulp.dest(this.destination));
 
         return this.getStream();
-    }.bind(_ts)).watch(_ts.sourceFiles);
+    }.bind(_ts)).watch(_ts.source);
 });
