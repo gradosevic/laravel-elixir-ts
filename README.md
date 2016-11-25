@@ -4,6 +4,11 @@ Laravel Elixir Typescript Extension
 
 This is TypeScript extension for Laravel 5 Elixir. It is a wrapper for gulp-typescript tested with Laravel 5.3 and Angular 2.0.
 
+####Installation
+```
+npm i laravel-elixir-ts --save-dev
+```
+
 ####Usage
 ```js
 mix.typescript(source, destination, options);
