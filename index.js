@@ -30,7 +30,6 @@ const ElixirTS = {
         delete this._options.source;
         delete this._options.destination;
 
-        //TODO: Add support for regular source maps files
         this._generateSourceMap = this._options.sourceMap || this._options.inlineSourceMap;
     },
     pipe: function (action) {
@@ -63,7 +62,13 @@ elixir.extend(extName, function (options) {
 
         if (this._generateSourceMap) {
             task.recordStep('Writing Source Maps');
-            this.pipe(sourcemaps.write());
+            if(this._options.inlineSourceMap){
+                //write inline source map
+                this.pipe(sourcemaps.write());
+            }else{
+                //write source map files
+                this.pipe(sourcemaps.write('./'));
+            }
         }
 
         task.recordStep('Saving to Destination');
