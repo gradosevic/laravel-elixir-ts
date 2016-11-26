@@ -40,6 +40,7 @@ elixir(mix => {
   module: "commonjs",
   moduleResolution: "node",
   sourceMap: true,
+  inlineSourceMap: false,
   emitDecoratorMetadata: true,
   experimentalDecorators: true,
   removeComments: false,

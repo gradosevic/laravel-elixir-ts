@@ -39,18 +39,11 @@ const ElixirTS = {
         return this._stream;
     },
     getPaths: function(){
-        //TODO: Check why paths are not showing in the table
-        return {
-            src: this._options.source,
-            output: this._options.destination
-        }
-    }
-};
-
-elixir.extend(extName, function (options) {
-    const _ts = ElixirTS;
-    _ts.init(options);
-    const task = new elixir.Task(extName, function () {
+        return new elixir.GulpPaths()
+            .src(this.source)
+            .output(this.destination);
+    },
+    task: function(task){
         this._stream = gulp.src(this.source);
 
         if (this._generateSourceMap) {
@@ -75,5 +68,12 @@ elixir.extend(extName, function (options) {
         this.pipe(gulp.dest(this.destination));
 
         return this.getStream();
-    }.bind(_ts), _ts.getPaths()).watch(_ts.source);
+    }
+};
+
+elixir.extend(extName, function (options) {
+    ElixirTS.init(options);
+    new elixir.Task(extName, function () {
+        return ElixirTS.task(this);
+    }, ElixirTS.getPaths()).watch(ElixirTS.source);
 });
