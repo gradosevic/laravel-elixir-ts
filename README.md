@@ -1,3 +1,24 @@
+<p align="center">
+<a href="https://www.npmjs.com/package/laravel-elixir-ts">
+        <img src="https://nodei.co/npm/laravel-elixir-ts.png"
+             alt="Package details">
+    </a>
+</p>
+<p align="center">
+    <a href="https://www.npmjs.com/package/laravel-elixir-ts">
+        <img src="https://img.shields.io/npm/v/laravel-elixir-ts.svg"
+             alt="Latest version">
+    </a>
+    <a href="https://www.npmjs.com/package/laravel-elixir-ts">
+        <img src="https://img.shields.io/npm/dm/laravel-elixir-ts.svg"
+             alt="Downloads per month">
+    </a>
+    <a href="https://www.npmjs.com/package/laravel-elixir-ts">
+        <img src="https://img.shields.io/npm/dt/laravel-elixir-ts.svg"
+             alt="Total downloads">
+    </a>
+</p>
+
 # laravel-elixir-ts
 Laravel Elixir Typescript Extension
 
